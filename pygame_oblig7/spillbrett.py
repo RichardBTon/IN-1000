@@ -66,3 +66,12 @@ class Spillbrett():
 
         for stein in self._steiner:
             stein.tegn(skjerm)
+
+
+def har_kollidert(objekt1, objekt2):
+    kollisjon = False
+
+    if abs(objekt1.get_x() - objekt2.get_x()) < 50 and abs(objekt1.get_y() - objekt2.get_y()) < 50:
+        kollisjon = True
+
+    return kollisjon

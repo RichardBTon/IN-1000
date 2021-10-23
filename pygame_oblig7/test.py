@@ -1,6 +1,10 @@
 from sau import Sau
-from spillbrett import Spillbrett
+from gress import Gress
+from stein import Stein
 from ulv import Ulv
+
+from spillbrett import Spillbrett
+from spillbrett import har_kollidert
 
 
 def sau_test():
@@ -39,4 +43,29 @@ def test_finn_naermeste_sau():
           naermeste_sau.get_y())
 
 
-test_finn_naermeste_sau()
+def test_har_kollidert():
+    brett = Spillbrett()
+    # Test-case 1: Disse to objektene har kollidert, fordi ulven ligger delvis oppå sauen
+    sau = Sau(50, 50, "sau")
+    ulv = Ulv(60, 60, "ulv", brett)
+    assert har_kollidert(sau, ulv)
+    # Rekkefølgen skal ikke ha noe å si
+    assert har_kollidert(ulv, sau)
+
+    # Test-case 2: Disse to objektene ligger rett ved siden av hverandre
+    # og har ikke kollidert (husk at de er 50px brede/høye):
+    gress = Gress(100, 100, "gress")
+    sau = Sau(150, 150, "sau",)
+    assert not har_kollidert(gress, sau)
+
+    # Test-case 3: Disse har kollidert
+    stein = Stein(100, 100, "gress")
+    ulv = Ulv(120, 110, "sau", brett)
+    assert har_kollidert(stein, ulv)
+
+    sau = Sau(400, 200, "sau")
+    stein = Stein(449, 230, "stein")
+    assert har_kollidert(sau, stein)
+
+
+test_har_kollidert()

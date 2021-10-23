@@ -12,8 +12,8 @@ spillbrett.opprett_gress(200, 400, "gress")
 spillbrett.opprett_stein(100, 60, "stein")
 spillbrett.opprett_stein(20, 280, "stein")
 
-spillbrett.opprett_ulv(400, 60, "ulv")
-spillbrett.opprett_ulv(80, 280, "ulv")
+spillbrett.opprett_ulv(400, 60, "stein")
+spillbrett.opprett_ulv(80, 280, "stein")
 
 
 # Dette er prekode som gjør at pygame zero fungerer. Ikke endre dette:
