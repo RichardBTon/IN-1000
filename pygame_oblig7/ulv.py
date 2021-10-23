@@ -1,6 +1,5 @@
 # Syntes det var veldig lange navn med posisjon_venstre og posisjon_topp, og x og y er vel så informativt, så endra det.
 
-from random import randint
 import math
 
 
@@ -70,26 +69,19 @@ class Ulv():
 
         # Tilfeldig bevegelse, kan sikkert lage dette mer modulært, men går fint nå
 
-        if randint(1, 1000) < 7:
-            self.set_vx_og_vy(randint(-3, 3), randint(-3, 3))
+        nærmeste_sau = self.finn_nærmeste_sau()
 
-        if randint(1, 1000) < 2:
-            if -5 <= self.get_vx() <= 5 and -5 <= self.get_vy() <= 5:
-                ny_vx = self.get_vx() + 1
-                ny_vy = self.get_vy() - 2
-                self.set_vx_og_vy(ny_vx, ny_vy)
+        if nærmeste_sau.x <= self.x:
+            self.set_vx(-1)
+        else:
+            self.set_vx(1)
 
-            else:
-                self.set_vx_og_vy(randint(-2, 2), randint(-2, 2))
+        if nærmeste_sau.y <= self.y:
+            self.set_vy(-1)
+        else:
+            self.set_vy(1)
 
-        if randint(1, 1000) < 2:
-            if -5 <= self.get_vx() <= 5 and -5 <= self.get_vy() <= 5:
-                ny_vx = self.get_vx() - 2
-                ny_vy = self.get_vy() + 1
-                self.set_vx_og_vy(ny_vx, ny_vy)
-            else:
-                self.set_vx_og_vy(randint(-2, 2), randint(-2, 2))
-
+    # Valgte oppgave b
     def finn_nærmeste_sau(self):
         første_sau = self.sauer[0]
         selfpos = (self.x, self.y)

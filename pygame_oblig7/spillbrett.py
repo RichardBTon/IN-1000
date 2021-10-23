@@ -30,10 +30,12 @@ class Spillbrett():
     def opprett_sau(self, x, y, bilde):
         ny_sau = Sau(x, y, bilde)
         self._sauer.append(ny_sau)
+        return ny_sau
 
     def opprett_gress(self, x, y, bilde):
         nytt_gress = Gress(x, y, bilde)
         self._gress.append(nytt_gress)
+        return nytt_gress
 
     def opprett_ulv(self, x, y, bilde):
         ny_ulv = Ulv(x, y, bilde, self)
@@ -43,10 +45,14 @@ class Spillbrett():
     def opprett_stein(self, x, y, bilde):
         ny_stein = Stein(x, y, bilde)
         self._steiner.append(ny_stein)
+        return ny_stein
 
     def oppdater(self):
         for sau in self._sauer:
             sau.beveg()
+
+        for ulv in self._ulver:
+            ulv.beveg()
 
     def tegn(self, skjerm):
         for sau in self._sauer:
