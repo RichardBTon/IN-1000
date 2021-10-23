@@ -1,4 +1,6 @@
 from sau import Sau
+from spillbrett import Spillbrett
+from ulv import Ulv
 
 
 def sau_test():
@@ -26,4 +28,15 @@ def sau_test():
     print("Testing av sau ferdig")
 
 
-sau_test()
+def test_finn_naermeste_sau():
+    brett = Spillbrett()
+    brett.opprett_sau(0, 0, "sau")
+    brett.opprett_sau(100, 100, "sau",)
+    ulv = brett.opprett_ulv(90, 80, "ulv")
+    naermeste_sau = ulv.finn_nærmeste_sau()
+    # Det bør printes 100, 100, ettersom denne sauen er nærmest ulven
+    print(naermeste_sau.get_x(),
+          naermeste_sau.get_y())
+
+
+test_finn_naermeste_sau()
