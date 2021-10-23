@@ -7,8 +7,12 @@ class Spillbrett():
 
     def opprett_sau(self, x, y, bilde):
         ny_sau = Sau(x, y, bilde)
-        self.sauer.append(ny_sau)
+        self._sauer.append(ny_sau)
 
     def oppdater(self):
-        for sau in self.sauer:
+        for sau in self._sauer:
             sau.beveg()
+
+    def tegn(self, skjerm):
+        for sau in self._sauer:
+            sau.tegn(skjerm)

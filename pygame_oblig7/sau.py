@@ -1,4 +1,7 @@
+# from pgzero import *
+
 # Syntes det var veldig lange navn med posisjon_venstre og posisjon_topp, og x og y er vel så informativt, så endra det.
+
 
 class Sau():
     def __init__(self, x, y, bilde):
@@ -8,7 +11,6 @@ class Sau():
 
         self.vx = 1
         self.vy = 1
-
 
     # Getters
 
@@ -48,3 +50,6 @@ class Sau():
 
     def skjerm():
         pass
+
+    def tegn(self, skjerm):
+        skjerm.blit(self.bilde, (self.x, self.y))
