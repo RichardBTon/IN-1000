@@ -6,6 +6,9 @@ spillbrett = Spillbrett()
 spillbrett.opprett_sau(100, 100, "sau")
 spillbrett.opprett_sau(400, 400, "sau2")
 
+spillbrett.opprett_gress(300, 50, "gress")
+spillbrett.opprett_gress(200, 400, "gress")
+
 
 # Dette er prekode som gjør at pygame zero fungerer. Ikke endre dette:
 WIDTH = 900
