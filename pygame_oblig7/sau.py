@@ -12,6 +12,8 @@ class Sau():
         self.vx = 1
         self.vy = 1
 
+        self.spist = False
+
     # Getters
 
     def get_x(self):
@@ -42,6 +44,14 @@ class Sau():
         self.vx = vx
         self.vy = vy
 
+    # Spising
+
+    def blir_spist(self):
+        self.spist = True
+
+    def er_spist(self):
+        return self.spist
+
     # Bevegelse
 
     def beveg(self):
@@ -58,6 +68,7 @@ class Sau():
             self.snu()
 
         # Tilfeldig bevegelse, kan sikkert lage dette mer modulært, men går fint nå
+        # Fordi fart kan være 2 blir den stuck i veggen innimellom
 
         if randint(1, 1000) < 9:
             self.set_vx_og_vy(randint(-2, 2), randint(-2, 2))

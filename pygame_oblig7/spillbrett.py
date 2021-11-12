@@ -48,11 +48,33 @@ class Spillbrett():
         return ny_stein
 
     def oppdater(self):
+        if not self.get_sauer:
+            print("Tomt for sauer")
+            return
         for sau in self._sauer:
-            sau.beveg()
+            if not sau.er_spist():
+                sau.beveg()
+
+                for stein in self._steiner:
+                    if har_kollidert(sau, stein):
+                        sau.snu()
+
+                for gress in self._gress:
+                    if not gress.er_spist():
+                        if har_kollidert(sau, gress):
+                            gress.blir_spist()
+                    else:
+                        self.get_gress().remove(gress)
+
+            else:
+                self.get_sauer().remove(sau)
 
         for ulv in self._ulver:
             ulv.beveg()
+
+            for sau in self._sauer:
+                if har_kollidert(ulv, sau):
+                    sau.blir_spist()
 
     def tegn(self, skjerm):
         for sau in self._sauer:

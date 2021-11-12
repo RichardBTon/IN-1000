@@ -63,9 +63,12 @@ def test_har_kollidert():
     ulv = Ulv(120, 110, "sau", brett)
     assert har_kollidert(stein, ulv)
 
+    # Test-case 4: Disse har kollidert
     sau = Sau(400, 200, "sau")
     stein = Stein(449, 230, "stein")
     assert har_kollidert(sau, stein)
+
+    print("test_har_kollidert fullført.")
 
 
 test_har_kollidert()
